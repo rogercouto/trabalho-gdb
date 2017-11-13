@@ -1,0 +1,78 @@
+/* custom tags */
+body{
+    background-color: #CCCCCC;
+}
+
+/* custom ids */
+#header{
+    width: 100%;
+}
+
+#menu{
+    border-radius: 0;
+    margin: 0px;
+}
+
+#content{
+    margin: 0px;
+    padding: 10px;
+    /*height: 600px;*/
+    background-color: #EEEEEE;
+}
+
+#div_banner{
+    margin: 10px;
+}
+
+#card_tags{
+    margin-top: 10px;    
+}
+
+#card_agenda{
+    margin-top: 10px;
+}
+
+#carouselExampleIndicators{
+    widows: 100%;
+}
+
+/* custom classes */
+
+.card{
+    padding: 15px;
+    width: 100%;
+}
+
+.card-body{
+    margin: 5px;
+}
+
+.tr_noticia{
+    background-color: #EEEEEE;
+}
+
+.navbar{
+	border-width: 0px;
+	border-style: solid;
+	border-color: #000000;
+	padding: 10px;
+	background-color: #00334d;
+	color: #FFF;
+}
+
+.footer{
+	border-width: 0px;
+	border-style: solid;
+	border-color: #000000;
+	padding: 10px;
+	background-color: #00334d;
+	color: #FFF;
+}
+
+.img-fluid{
+    width: 100%;
+}
+
+.form-inline{
+    margin: 10px;
+}
