@@ -4,7 +4,7 @@
         <div class="card-body">
             <table class="table" >
                 <tbody>
-                <?php foreach ($noticias as $noticia): if (strlen($noticia->titulo) == 0 || $noticia->inMenuSobre()) continue; ?>
+                <?php foreach ($noticias as $noticia): if (strlen($noticia->titulo) == 0 || $noticia->inMenu()) continue; ?>
                     <tr class="tr_noticia">
                         <?php if (isset($noticia->img_mini)): ?>
                             <td style="width: 150px">

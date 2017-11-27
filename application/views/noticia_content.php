@@ -1,11 +1,11 @@
 <div class="col-md-12">
-    <div class="card">
-        <?php if (isset($noticia->titulo) && strlen($noticia->titulo) > 0 && (!$noticia->inMenuSobre())): ?>
+    <div class="card" style="min-height: 400px">
+        <?php if (isset($noticia->titulo) && strlen($noticia->titulo) > 0): ?>
             <div class="card-title"><h1><?=$noticia->titulo?></h1></div>
         <?php endif; ?>
         <div class="card-body">
             <?php if (isset($noticia->texto) && strlen(trim($noticia->texto))>0): ?>
-                <?php if (isset($noticia->titulo) && strlen($noticia->titulo) > 0 && (!$noticia->inMenuSobre())) echo '<hr />'?>
+                <?php if (isset($noticia->titulo) && strlen($noticia->titulo) > 0 && (!$noticia->inMenu())) echo '<hr />'?>
                 <?=$noticia->texto?>
             <?php endif; ?>
             <!-- Galeria de fotos -->

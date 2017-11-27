@@ -116,6 +116,7 @@ class Adm extends CI_Controller {
             $noticia->data_hora_pub = new DateTime(date('Y-m-d H:i:s'));
         $noticia->data_hora_destaque = new DateTime($_POST['destaque']);
         if (isset($_POST['tags']) && $_POST['tags'] != $noticia->getTagsValue()){
+            echo $_POST['tags'].'<br/>';
             $noticia->setTagsValue($_POST['tags']);
         }
         $count = 0;
@@ -153,6 +154,7 @@ class Adm extends CI_Controller {
             $noticia->updateAnexos = TRUE;
         }
         if ($_FILES['mini']['error'] == 0){
+            unlink('upload/mini/'.$noticia->img_mini);
             $fileName = date('Ymdhis');
             if ($count < 10)
                 $fileName .= '0';
@@ -164,6 +166,7 @@ class Adm extends CI_Controller {
             $count++;
         }
         if ($_FILES['banner']['error'] == 0){
+            unlink('upload/banner/'.$noticia->img_banner);
             $fileName = date('Ymdhis');
             if ($count < 10)
                 $fileName .= '0';

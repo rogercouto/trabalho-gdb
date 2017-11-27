@@ -47,6 +47,11 @@ class GDB extends CI_Model {
     * Edita uma notícia no banco
     */
     function updateNoticia($noticia){
+        /*
+        echo '<pre>';
+        print_r($noticia);
+        exit();
+        */
         switch ($this->tipoBanco) {
             case 'mysql':
                 $this->NoticiaDAO_Mysql->update($noticia);
@@ -59,6 +64,23 @@ class GDB extends CI_Model {
         }
     }
 
+    /**
+     * Remove os arquivos da noticia
+     */
+    private function deleteFiles($noticia){
+        if (isset($noticia->img_banner)){
+            unlink('upload/banner/'.$noticia->img_banner);
+        }
+        if (isset($noticia->img_mini)){
+            unlink('upload/mini/'.$noticia->img_mini);
+        }
+        foreach ($noticia->fotos as $foto){
+            unlink('upload/fotos/'.$foto);
+        }
+        foreach ($noticia->anexos as $anexo){
+            unlink('upload/anexos/'.$anexo);
+        }
+    }
     /*
     * Exclui uma notícia
     */
@@ -66,10 +88,12 @@ class GDB extends CI_Model {
         switch ($this->tipoBanco) {
             case 'mysql':
                 $noticia = $this->NoticiaDAO_Mysql->get($id);
+                $this->deleteFiles($noticia);
                 $this->NoticiaDAO_Mysql->delete($noticia);
                 break;
             case 'mongo':
                 $noticia = $this->NoticiaDAO_Mongo->get($id);
+                $this->deleteFiles($noticia);
                 $this->NoticiaDAO_Mongo->delete($noticia);
                 break;
             default:

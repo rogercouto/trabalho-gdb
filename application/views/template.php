@@ -27,9 +27,9 @@
         <nav class="navbar navbar-toggleable-md navbar-inverse">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
+            </button>
               <a class="navbar-brand" href="#">&nbsp;</a>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                   <li class="nav-item <?php if (!isset($content)) echo ' active';?>">
                     <a class="nav-link" href="<?=base_url()?>">Home
@@ -41,13 +41,22 @@
                     <li class="nav-item <?php if (isset($content)&&$content=='agenda') echo ' active';?>">
                     <a class="nav-link" href="<?=site_url('Welcome/agenda')?>">Agenda</a>
                   </li>
+                    <?php foreach($noticiasMenu as $nm):?>
+                        <li class="nav-item <?php if (isset($content)&&$content=='noticia_content'&&(isset($noticia)&&$noticia->id==$nm->id)) echo ' active';?>">
+                            <a class="nav-link" href="
+                                    <?=site_url('Welcome/mostra_noticia/'.$nm->id)?>
+                                "><?=$nm->titulo?></a>
+                        </li>
+                    <?php endforeach;?>
                     <li class="nav-item dropdown">
                         <a<?php if (isset($menu_active)) echo ' style="color: white"';?> class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sobre o polo</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <?php foreach($noticiasMenu as $noticia):?>
-                                <a class="dropdown-item" href="<?=site_url('Welcome/mostra_noticia/'.$noticia->id)?>"><?=$noticia->titulo?></a>
+                            <?php foreach($noticiasSobre as $ns):?>
+                                <a class="dropdown-item" href="
+                                        <?=site_url('Welcome/mostra_noticia/'.$ns->id)?>
+                                    "><?=$ns->titulo?></a>
                             <?php endforeach;?>
-                            <a class="dropdown-item" href="#">Contato</a>
+                            <!--<a class="dropdown-item" href="#">Contato</a>-->
                         </div>
                     </li>
                 </ul>

@@ -98,13 +98,18 @@ class Noticia extends CI_Model {
         return $value;
     }
 
-    function inMenuSobre(){
-        if (count($this->tags)==1 && $this->tags[0] === 'Sobre')
+    function inMenu(){
+        if (count($this->tags)==1 && ($this->tags[0] === 'Sobre' || $this->tags[0] === 'Menu'))
             return TRUE;
         return FALSE;
     }
 
     function setTagsValue($value){
+        if (strlen(trim($value)) == 0){
+            $this->tags = array();
+            $this->updateTags = TRUE;
+            return;
+        }
         $tags = explode(';', $value);
         foreach ($tags as $tag){
             $this->addTag(trim($tag));

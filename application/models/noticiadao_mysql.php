@@ -121,7 +121,7 @@ class NoticiaDAO_Mysql extends CI_Model {
 
 
     /*
-    * Converte uma notícia como array do mongodb para um objeto Noticia
+    * Converte uma notícia retornada do mysql para um objeto Noticia
     */
     private function getNoticia($dbObject){
         $noticia = new Noticia();

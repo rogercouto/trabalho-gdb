@@ -58,7 +58,7 @@
                 <h4 class="card-title">Not&iacute;cias</h4>
                 <table class="table" >
                     <tbody>
-                    <?php foreach ($noticias as $noticia): if (strlen($noticia->titulo)==0 || $noticia->inMenuSobre()) continue; ?>
+                    <?php foreach ($noticias as $noticia): if (strlen($noticia->titulo)==0 || $noticia->inMenu()) continue; ?>
                         <tr class="tr_noticia">
                             <?php if (isset($noticia->img_mini)): ?>
                                 <td style="width: 150px">
@@ -96,7 +96,7 @@
         <div id="card_tags" class="card">
             <div class="card-body">
                 <h4 class="card-title">Tags</h4>
-                <?php foreach ($tags as $tag): if ($tag == 'Sobre') continue; ?>
+                <?php foreach ($tags as $tag): if ($tag == 'Sobre'||$tag=='Menu') continue; ?>
                     <form method="post" action="<?=site_url('Welcome/busca_tag/')?>">
                         <input class="form-control" type="hidden" name="tag" value="<?=$tag?>">
                         <button class="btn btn-secondary" type="submit"><?=$tag?></button>
