@@ -97,8 +97,14 @@
                         <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fuabrestingaseca%2F&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId" width="300" height="80" style="font-color:#FFF; border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                     </div>
                 </div>
-            </div></div>
+            </div>
+            <div class="container">
+                <p style="width: 100%;text-align: center">
+                    <a href="<?=base_url()?>index.php/adm">&Aacute;rea restrita</a>
+                </p>
+            </div>
         </div>
+    </div>
     </div>
     <!-- /Rodape -->
     <script type="text/javascript">

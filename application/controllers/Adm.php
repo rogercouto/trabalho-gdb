@@ -154,7 +154,8 @@ class Adm extends CI_Controller {
             $noticia->updateAnexos = TRUE;
         }
         if ($_FILES['mini']['error'] == 0){
-            unlink('upload/mini/'.$noticia->img_mini);
+            if (isset($noticia->img_mini))
+                unlink('upload/mini/'.$noticia->img_mini);
             $fileName = date('Ymdhis');
             if ($count < 10)
                 $fileName .= '0';
@@ -166,7 +167,8 @@ class Adm extends CI_Controller {
             $count++;
         }
         if ($_FILES['banner']['error'] == 0){
-            unlink('upload/banner/'.$noticia->img_banner);
+            if (isset($noticia->img_banner))
+                unlink('upload/banner/'.$noticia->img_banner);
             $fileName = date('Ymdhis');
             if ($count < 10)
                 $fileName .= '0';
