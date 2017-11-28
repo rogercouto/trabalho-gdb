@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card" style="min-height: 400px">
         <?php if (isset($noticia->titulo) && strlen($noticia->titulo) > 0): ?>
-            <div class="card-title"><h1><?=$noticia->titulo?></h1></div>
+            <div class="card-title"><h3><?=$noticia->titulo?></h3></div>
         <?php endif; ?>
         <div class="card-body">
             <?php if (isset($noticia->texto) && strlen(trim($noticia->texto))>0): ?>

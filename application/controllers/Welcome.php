@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-    const LIMIT = 20; //Limite de notícias para serem exibidas
+    const LIMIT = 5; //Limite de notícias para serem exibidas
 
     /**
 	 * Index Page for this controller.

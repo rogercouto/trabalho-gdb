@@ -526,4 +526,4 @@ $config['proxy_ips'] = '';
 * Seleção do banco
 * Opções: 'mongo' ou 'mysql'
 */
-$config['banco'] = 'mongo';
+$config['banco'] = 'mysql';

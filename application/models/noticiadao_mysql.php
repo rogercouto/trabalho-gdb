@@ -215,13 +215,41 @@ class NoticiaDAO_Mysql extends CI_Model {
     /**
      * Pesquisa as ultimas $limit notícias que não estão mais em destaque
      */
-    private function getNaoDestaques($limit){
+    private function getNaoDestaquesOld($limit){
         $this->db->where('data_hora_destaque < ', date('Y-m-d h:i:s'));
+        $this->db->or_where('data_hora_destaque is null ');
         $this->db->order_by('noticia_id','desc');
         $this->db->limit($limit);
         $array = $this->db->get('noticia')->result();
         $result = array();
         foreach ($array as $dbObject) {                                 
+            array_push($result, $this->getNoticia($dbObject));
+        }
+        return $result;
+    }
+
+    /**
+     * Retorna todas as notícias não são mais em destaques
+     */
+    function getNaoDestaques($limit){
+        $sql = "SELECT
+                distinct noticia.noticia_id,
+                noticia.titulo,
+                noticia.texto,
+                noticia.data_hora_pub,
+                noticia.data_hora_destaque,
+                noticia.img_mini,
+                noticia.img_banner 
+            FROM noticia 
+            join tag_noticia using(noticia_id)
+            join tag using(tag_id)
+            WHERE (data_hora_destaque is null OR data_hora_destaque < '".date('Y-m-d h:i:s')."')
+            AND (tag.nome <> 'Menu' AND tag.nome <> 'Sobre')
+            ORDER BY noticia.noticia_id DESC
+            LIMIT 5";
+        $array = $this->db->query($sql)->result();
+        $result = array();
+        foreach ($array as $dbObject) {
             array_push($result, $this->getNoticia($dbObject));
         }
         return $result;

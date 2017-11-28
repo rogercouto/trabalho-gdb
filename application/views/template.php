@@ -79,7 +79,7 @@
     </div>
     <!-- /Conteudo -->
     <!-- Rodape -->
-    <div class="container">
+    <div class="container"">
         <div class="footer navbar-bottom navbar-inverse">
             <div class="container">
                 <div class="row">
@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <!-- /Rodape -->
     <script type="text/javascript">
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
